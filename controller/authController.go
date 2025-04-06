@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/revacholiere-moralist/blogbackend/database"
 	"github.com/revacholiere-moralist/blogbackend/models"
 	"github.com/revacholiere-moralist/blogbackend/util"
@@ -107,4 +108,9 @@ func Login(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{
 		"message": "You are successfully logged in",
 	})
+}
+
+
+type Claims struct {
+	jwt.RegisteredClaims
 }
